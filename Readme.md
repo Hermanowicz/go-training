@@ -23,12 +23,18 @@ A url shortner using XID library and sqlite
 
 ## Todos
 
+[![todos app build](https://github.com/Hermanowicz/go-training/actions/workflows/todos.yaml/badge.svg)](https://github.com/Hermanowicz/go-training/actions/workflows/todos.yaml)
+
 Simple todo app using chi sqltie sqlx
 
 ## Flush-cards
 
+[![flash-cards app build](https://github.com/Hermanowicz/go-training/actions/workflows/flush-cards.yaml/badge.svg)](https://github.com/Hermanowicz/go-training/actions/workflows/flush-cards.yaml)
+
 Simple flash-cards (Fiszki in Polish) app using chi sqltie sqlx
 
 ## Blog
+
+[![blog app build](https://github.com/Hermanowicz/go-training/actions/workflows/blog.yaml/badge.svg)](https://github.com/Hermanowicz/go-training/actions/workflows/blog.yaml)
 
 Old but good blog.
