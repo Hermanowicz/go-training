@@ -22,7 +22,10 @@ jobs:
         with:
           go-version: '1.22.1'
       - run: go version
-      - run: go get ./...
+      - shell: bash
+        run: |
+          cd shorty && go get ./...
+          go mod tidy
       - run: go build -o bin/shorty-app shorty/main.go
       - shell: bash
         run: |

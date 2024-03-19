@@ -12,7 +12,7 @@ func main() {
 	dbConn, err := sql.Open("sqlite3", ":memory:")
 
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal(err.Error())
 	}
 
 	dbConn.Ping()
