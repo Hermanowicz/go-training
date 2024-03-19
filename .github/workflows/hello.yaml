@@ -5,7 +5,7 @@ on: [push]
 jobs:
   hello:
     name: Hello, World!
-    runs-on: ubuntu-lates
+    runs-on: ubuntu-latest
     steps:
       - shell: bash
         run: |
