@@ -1,0 +1,23 @@
+name: todos app build
+
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - "todos/**"
+
+env:
+  VERSION: ${{ github.sha }}
+
+jobs:
+  hello_blog:
+    name: Hello todos!!!
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: echo message to log
+        shell: bash
+        run: |
+          echo "Hello from todos ci/cd"
+          echo "Version $VERSION"

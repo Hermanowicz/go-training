@@ -1,0 +1,23 @@
+name: shorty app build
+
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - "shorty/**"
+
+env:
+  VERSION: ${{ github.sha }}
+
+jobs:
+  hello_blog:
+    name: Hello shorty!!!
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: echo message to log
+        shell: bash
+        run: |
+          echo "Hello from shorty ci/cd"
+          echo "Version $VERSION"

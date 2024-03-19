@@ -1,0 +1,23 @@
+name: flash-cards app build
+
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - "flash-cards/**"
+
+env:
+  VERSION: ${{ github.sha }}
+
+jobs:
+  hello_blog:
+    name: Hello flash-cards!!!
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: echo message to log
+        shell: bash
+        run: |
+          echo "Hello from flash-cards ci/cd"
+          echo "Version $VERSION"
