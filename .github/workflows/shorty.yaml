@@ -27,7 +27,8 @@ jobs:
         working-directory: ./shorty
         run: go get ./... && go mod tidy
       - name: build app
-        run: go build -o bin/shorty-app shorty/main.go
+        working-directory: ./shorty
+        run: go build -o ../bin/shorty-app main.go
       - shell: bash
         run: |
           echo "go binary compiled"
