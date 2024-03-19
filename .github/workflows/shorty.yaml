@@ -11,7 +11,7 @@ env:
   VERSION: ${{ github.sha }}
 
 jobs:
-  hello_blog:
+  hello_shorty:
     name: Hello shorty!!!
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -21,3 +21,29 @@ jobs:
         run: |
           echo "Hello from shorty ci/cd"
           echo "Version $VERSION"
+  goodbye:
+    needs: hello_shorty
+    name: bye bye shorty
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: first step
+        shell: bash
+        run: |
+          echo "goodbye shorty"
+
+  build:
+    name: build go app
+    runs-on: ubuntu-lates
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.22.1'
+      - run: go version
+      - run: go build -o shorty shorty/main.go
+      - shell: bash
+        run: |
+          echo "go binary compiled"
+          ./shorty
