@@ -16,6 +16,9 @@ func main() {
 	}
 
 	dbConn.Ping()
+	if err != nil {
+		log.Fatal(err.Error())
+	}
 
 	fmt.Println(`Hello, world!
 On multiple lines.
