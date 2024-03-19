@@ -4,12 +4,14 @@ import "database/sql"
 
 var (
 	dbConn   *sql.DB
+
 	createDb = `Create if not exists links (
 	original_url string PRIMARY Key,
 	short_id string NOT NULL,
 	views integer NOT NULL,
 	stamp integer NOT NULL
 	)`
+	
 	createIdx = `Create Index short_id_idx on links(short_id)`
 )
 
