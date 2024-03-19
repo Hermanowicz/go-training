@@ -9,6 +9,7 @@ import (
 )
 
 func main() {
+	// triger: true
 	dbConn, err := sql.Open("sqlite3", ":memory:")
 
 	if err != nil {
