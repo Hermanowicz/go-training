@@ -2,6 +2,12 @@
 
 > Long time passed from my last use of go, so lets get started
 
+## Ci/Cd
+
+[LogRocket](https://blog.logrocket.com/creating-separate-monorepo-ci-cd-pipelines-github-actions/)
+
+[Github Action Docs](https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts)
+
 ## Shorty
 
 A url shortner using XID library and sqlite

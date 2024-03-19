@@ -1,0 +1,23 @@
+name: blog app build
+
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - "blog/**"
+
+env:
+  VERSION: ${{ github.sha }}
+
+jobs:
+  hello_blog:
+    name: Hello Blog!!!
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: echo message to log
+        shell: bash
+        run: |
+          echo "Hello from blog ci/cd"
+          echo "Version $VERSION"
