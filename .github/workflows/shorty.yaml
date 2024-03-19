@@ -24,7 +24,7 @@ jobs:
       - name: get go version
         run: go version
       - name: install deps
-        working-directory: shorty
+        working-directory: ./shorty
         run: go get ./... && go mod tidy
       - name: build app
         run: go build -o bin/shorty-app shorty/main.go
