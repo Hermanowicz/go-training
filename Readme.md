@@ -2,6 +2,13 @@
 
 > Long time passed from my last use of go, so lets get started
 
+## Todos
+
+- [ ] shorty -> In Progres
+- [ ] blog
+- [ ] flash-cards
+- [ ] todos
+
 ## Ci/Cd
 
 [LogRocket](https://blog.logrocket.com/creating-separate-monorepo-ci-cd-pipelines-github-actions/)
