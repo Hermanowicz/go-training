@@ -3,7 +3,7 @@ name: Hello, World from Go-training
 on: [push]
 
 jobs:
-  job_hello:
+  hello:
     name: Hello, World!
     runs-on: ubuntu-lates
     steps:
@@ -11,8 +11,9 @@ jobs:
         run: |
           echo "hello world"
 
-  job_goodbye:
+  goodbye:
     name: goodbye
+    needs: hello
     runs-on: ubuntu-latest
     steps:
       - shell: bash
