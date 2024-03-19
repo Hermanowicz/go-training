@@ -1,0 +1,20 @@
+name: Hello, World from Go-training
+
+on: [push]
+
+jobs:
+  job_hello:
+    name: Hello, World!
+    runs-on: ubuntu-lates
+    steps:
+      - shell: bash
+        run: |
+          echo "hello world"
+
+  job_goodbye:
+    name: goodbye
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        run: |
+          echo "goodbye, world"
