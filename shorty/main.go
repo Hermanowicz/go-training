@@ -1,11 +1,22 @@
 package main
 
 import (
+	"database/sql"
 	"fmt"
+	_ "github.com/mattn/go-sqlite3"
+	"log"
 	"time"
 )
 
 func main() {
+	dbConn, err := sql.Open("sqlite3", ":memory:")
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	dbConn.Ping()
+
 	fmt.Println(`Hello, world!
 On multiple lines.
 I hope you will have a great DAY.`)
