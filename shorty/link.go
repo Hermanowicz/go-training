@@ -7,6 +7,7 @@ type Link struct {
 	ShortId    string
 	Views      int
 	Stamp      int64
+	Published  bool
 }
 
 func NewLink(url string) (*Link, error) {
@@ -18,5 +19,6 @@ func NewLink(url string) (*Link, error) {
 		ShortId:    shortId,
 		Views:      0,
 		Stamp:      int64(timeStamp),
+		Published:  true,
 	}, nil
 }
