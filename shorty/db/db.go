@@ -1,6 +1,10 @@
-package main
+package db
 
-import "database/sql"
+import (
+	"database/sql"
+	"errors"
+	"shorty/models"
+)
 
 var (
 	dbConn *sql.DB
@@ -14,6 +18,8 @@ var (
 	)`
 
 	createIdx string = `Create Index short_id_idx on links(short_id)`
+
+	rec *models.Link
 )
 
 func CreateTableAndIndex() error {
@@ -30,9 +36,9 @@ func CreateTableAndIndex() error {
 	return nil
 }
 
-func AddRecord(rec *Link) (sql.Result, error) {
+func AddRecord(rec *models.Link) (sql.Result, error) {
 	result, err := dbConn.Exec("insert into links (original_irl, short_id, views, stamp, published) Values (?, ?, ?, ?, ?)",
-		rec.OrginalUrl, rec.ShortId, rec.Views, rec.Stamp, rec.Published)
+		rec.OriginalUrl, rec.ShortId, rec.Views, rec.Stamp, rec.Published)
 	if err != nil {
 		return nil, err
 	}
@@ -51,10 +57,9 @@ func SearchUrl(q string) (string, error) {
 	var url string
 	row := dbConn.QueryRow("Select original_url from links where short_id = ?", q)
 	if err := row.Scan(url); err != nil {
-		if err == sql.ErrNoRows {
+		if errors.Is(err, sql.ErrNoRows) {
 			return "", nil
 		}
-		return "", err
 	}
 	return url, nil
 }

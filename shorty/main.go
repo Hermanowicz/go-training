@@ -9,6 +9,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"shorty/db"
 	"time"
 )
 
@@ -23,22 +24,23 @@ func init() {
 }
 
 func main() {
-	// triger: true
+	// trigger: true
 	dbConn, err := sql.Open("sqlite3", ":memory:")
 	if err != nil {
 		log.Fatal(err.Error())
 	}
-	dbConn.Ping()
+
+	err = dbConn.Ping()
 	if err != nil {
 		log.Fatal(err.Error())
 	}
 
-	err = CreateTableAndIndex()
+	err = db.CreateTableAndIndex()
 	if err != nil {
 		log.Fatal("Database creation failed, terminating program")
 	}
 
-	// creaating new chi router
+	// creating new chi router
 	r := chi.NewRouter()
 
 	// Global middleware stack
