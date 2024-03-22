@@ -35,9 +35,9 @@ func main() {
 		log.Fatal(err.Error())
 	}
 
-	err = db.CreateTableAndIndex()
+	err = db.CreateTableAndIndex(dbConn)
 	if err != nil {
-		log.Fatal("Database creation failed, terminating program")
+		log.Fatal("Database creation failed, terminating program with err:", err)
 	}
 
 	// creating new chi router
